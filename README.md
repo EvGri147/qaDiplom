@@ -27,22 +27,30 @@
 
 ### Запуск тестов
 
-1) Клонировать репозиторий командой https://github.com/EvGri147/qaDiplom.git;
+1) Клонировать репозиторий командой `git clone https://github.com/EvGri147/qaDiplom.git` ;    
 2) Открыть проект в IntelliJ IDEA;
-3) Создать контейнеры в скопированном проекте docker-compose up --build.
+3) Создать контейнеры в скопированном проекте `docker-compose up --build` .
 
 #### Для проверки MySQL:
 
-1) Запустить jar-файл с базой данных MySQL командой: java "-Dspring.datasource.url=jdbc:mysql://185.119.56.254:3306/app" -jar artifacts/aqa-shop.jar;
+1) Запустить jar-файл с базой данных MySQL командой: `java "-Dspring.datasource.url=jdbc:mysql://185.119.56.254:3306/app" -jar artifacts/aqa-shop.jar` ;
+
 2) Убедиться в готовности системы. Приложение должно быть доступно по адресу: `http://localhost:8080/`;
-3) В новой вкладке терминала запустить тесты командой: ./gradlew clean test "-Ddb.url=jdbc:mysql://185.119.56.254:3306/app";
+
+3) В новой вкладке терминала запустить тесты командой: `./gradlew clean test "-Ddb.url=jdbc:mysql://185.119.56.254:3306/app"` ;
+
 4)  Для создания отчета запустить команду:`./gradlew allureServe`, `./gradlew allureReport`.
 
 #### Для проверки PostgreSQL:
-1)  В новой вкладке терминала запустить тестируемое приложение командой: java "-Dspring.datasource.url=jdbc:postgresql://185.119.56.254:5432/app" -jar artifacts/aqa-shop.jar;
+1)  В новой вкладке терминала запустить тестируемое приложение командой: `java "-Dspring.datasource.url=jdbc:postgresql://185.119.56.254:5432/app" -jar artifacts/aqa-shop.jar`;
+
 2)  Убедиться в готовности системы. Приложение должно быть доступно по адресу: `http://localhost:8080/`;
-3)  В новой вкладке терминала запустить тесты командой: ./gradlew clean test "-Ddb.url=jdbc:postgresql://185.119.56.254:5432/app";
+
+3)  В новой вкладке терминала запустить тесты командой: `./gradlew clean test "-Ddb.url=jdbc:postgresql://185.119.56.254:5432/app"`;
+
 4)  Для создания отчета запустить команду: `./gradlew allureServe`,`./gradlew allureReport`.
+
+
 
 - Для остановки приложений использовать команду `Cntrl C`.
 - Для удаления контейнеров использовать команду `docker-compose down`.
