@@ -32,151 +32,151 @@ public class CreditTest {
 
 
     @Test
-    @DisplayName("Payment by approved card, purchase on credit, valid data")
-    void shouldPayByApprovedCardCredit() {
+    @DisplayName("Payment by approved card")
+    void shouldPayByApprovedCard() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
         formPage.setCardYear("26");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("456");
         formPage.pushСontinueButton();
         formPage.checkMessageSuccess();
     }
 
     @Test
-    @DisplayName("Payment with an inactive card, purchase on credit, valid data")
-    void shouldPayByDeclinedCardCredit() {
+    @DisplayName("Payment with an inactive card")
+    void shouldPayByDeclinedCard() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444442");
         formPage.setCardMonth("08");
         formPage.setCardYear("26");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("654");
         formPage.pushСontinueButton();
         formPage.checkMessageError();
     }
 
     @Test
-    @DisplayName("Payment with an unknown card, purchase on credit, valid data")
-    void shouldPayUnknownCardCredit() {
+    @DisplayName("Payment with an unknown card, valid data")
+    void shouldPayUnknownCard() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444443");
         formPage.setCardMonth("08");
         formPage.setCardYear("26");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("654");
         formPage.pushСontinueButton();
         formPage.checkMessageError();
     }
 
     @Test
-    @DisplayName("Payment by card with an invalid card number, purchase on credit")
-    void shouldPayInvalidCardNumberCredit() {
+    @DisplayName("Payment by card with an invalid card number")
+    void shouldPayInvalidCardNumber() {
         formPage.buyOnCredit();
         formPage.setCardNumber("444444444444AAAA");
         formPage.setCardMonth("04");
         formPage.setCardYear("26");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("345");
         formPage.pushСontinueButton();
         formPage.checkMessageWrongFormat();
     }
 
     @Test
-    @DisplayName("Payment by card with an invalid month number, purchase on credit")
-    void shouldPayInvalidMonthCredit() {
+    @DisplayName("Payment by card with an invalid month number")
+    void shouldPayInvalidMonth() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("15");
         formPage.setCardYear("26");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("345");
         formPage.pushСontinueButton();
         formPage.checkMessageWrongDate();
     }
 
     @Test
-    @DisplayName("Payment by card with an invalid year number, purchase on credit")
-    void shouldPayInvalidYearCredit() {
+    @DisplayName("Payment by card with an invalid year number")
+    void shouldPayInvalidYear() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
         formPage.setCardYear("22");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("345");
         formPage.pushСontinueButton();
         formPage.checkMessageOverDate();
     }
 
     @Test
-    @DisplayName("Payment by card with an invalid owner, purchase on credit")
-    void shouldPayInvalidCardOwnerCredit() {
+    @DisplayName("Payment by card with an invalid owner")
+    void shouldPayInvalidCardOwner() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
         formPage.setCardYear("25");
-        formPage.setCardOwner("Irina 3456 Петrova");
+        formPage.setCardOwner("Maria 3456 Петrova");
         formPage.setCardCVV("345");
         formPage.pushСontinueButton();
         formPage.checkMessageError();
     }
 
     @Test
-    @DisplayName("Payment by card with an invalid CVV, purchase on credit")
-    void shouldPayInvalidCVVCredit() {
+    @DisplayName("Payment by card with an invalid CVV")
+    void shouldPayInvalidCVV() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
         formPage.setCardYear("25");
-        formPage.setCardOwner("Irina Ivanova");
-        formPage.setCardCVV("6DD");
+        formPage.setCardOwner("Maria Ivanova");
+        formPage.setCardCVV("7DD");
         formPage.pushСontinueButton();
         formPage.checkMessageWrongFormat();
     }
 
     @Test
-    @DisplayName("Payment by card with an empty card number, purchase on credit")
-    void shouldPayEmptyCardNumberCredit() {
+    @DisplayName("Payment by card with an empty card number")
+    void shouldPayEmptyCardNumber() {
         formPage.buyOnCredit();
         formPage.setCardNumber("");
         formPage.setCardMonth("08");
         formPage.setCardYear("25");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("654");
         formPage.pushСontinueButton();
         formPage.checkMessageWrongFormat();
     }
 
     @Test
-    @DisplayName("Payment by card with an empty card month, purchase on credit")
-    void shouldPayEmptyCardNumberMonth() {
+    @DisplayName("Payment by card with an empty card month")
+    void shouldPayEmptyCardMonth() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("");
         formPage.setCardYear("25");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("654");
         formPage.pushСontinueButton();
         formPage.checkMessageWrongFormat();
     }
 
     @Test
-    @DisplayName("Payment by card with an empty card year, purchase on credit")
-    void shouldPayEmptyCardNumberYear() {
+    @DisplayName("Payment by card with an empty card year")
+    void shouldPayEmptyCardYear() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
         formPage.setCardYear("");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("654");
         formPage.pushСontinueButton();
         formPage.checkMessageWrongFormat();
     }
 
     @Test
-    @DisplayName("Payment by card with an empty card owner, purchase on credit")
-    void shouldPayEmptyCardNumberOwner() {
+    @DisplayName("Payment by card with an empty card owner")
+    void shouldPayEmptyCardOwner() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
@@ -188,26 +188,26 @@ public class CreditTest {
     }
 
     @Test
-    @DisplayName("Payment by card with an empty card CVV, purchase on credit")
-    void shouldPayEmptyCardNumberCVV() {
+    @DisplayName("Payment by card with an empty card CVV")
+    void shouldPayEmptyCardCVV() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
         formPage.setCardYear("25");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("");
         formPage.pushСontinueButton();
         formPage.checkMessageWrongFormat();
     }
 
     @Test
-    @DisplayName("Payment using an approved card, purchase on credit, valid data, checking the database entry")
+    @DisplayName("Payment using an approved card, checking the database entry")
     void shouldPayByApprovedCardCreditStatusDB() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444441");
         formPage.setCardMonth("08");
         formPage.setCardYear("26");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("654");
         formPage.pushСontinueButton();
         formPage.checkMessageSuccess();
@@ -215,13 +215,13 @@ public class CreditTest {
     }
 
     @Test
-    @DisplayName("Payment inactive card, purchase on credit, valid data, checking the database entry")
+    @DisplayName("Payment inactive card, checking the database entry")
     void shouldPayByDeclinedCardInCreditStatusInDB() {
         formPage.buyOnCredit();
         formPage.setCardNumber("4444444444444442");
         formPage.setCardMonth("08");
         formPage.setCardYear("26");
-        formPage.setCardOwner("Irina Ivanova");
+        formPage.setCardOwner("Maria Ivanova");
         formPage.setCardCVV("432");
         formPage.pushСontinueButton();
         formPage.checkMessageSuccess();
